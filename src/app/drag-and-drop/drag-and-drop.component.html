@@ -1,0 +1,61 @@
+<div class="container col-12">
+  <h2>Mis Accesos Directos</h2>
+
+  <div 
+    cdkDropList
+    #contenedorList="cdkDropList"
+    [cdkDropListData]="contenedor"
+    [cdkDropListConnectedTo]="[]"
+    class="example-list col-3"  
+    (cdkDropListDropped)="drop($event)"
+  > <div class="example-box ion-ios-body" *ngFor="let item of contenedor" cdkDrag>{{ item }}</div>
+</div>
+
+
+  <div class="example-container col-3">
+    <h2>Uno</h2>
+
+    <div
+      cdkDropList
+      #unoList="cdkDropList"
+      [cdkDropListData]="uno"
+      [cdkDropListConnectedTo]="[contenedorList, dosList, tresList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let item of uno" cdkDrag>{{ item }}</div>
+    </div>
+  </div>
+
+  <div class="example-container  col-3">
+    <h2>Dos</h2>
+
+    <div
+      cdkDropList
+      #dosList="cdkDropList"
+      [cdkDropListData]="dos"
+      [cdkDropListConnectedTo]="[contenedorList, unoList, tresList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let item of dos" cdkDrag>{{ item }}</div>
+    </div>
+  </div>
+
+  <div class="example-container  col-3" >
+    <h2>Tres</h2>
+
+    <div
+      cdkDropList
+      #tresList="cdkDropList"
+      [cdkDropListData]="tres"
+      [cdkDropListConnectedTo]="[contenedorList, dosList, unoList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let item of tres" cdkDrag>
+        {{ item }}
+      </div>
+    </div>
+  </div>
+</div>
