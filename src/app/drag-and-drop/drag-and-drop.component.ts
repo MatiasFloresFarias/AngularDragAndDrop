@@ -6,6 +6,7 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
+import { ThisReceiver } from '@angular/compiler';
 
 
 @Component({
@@ -33,20 +34,29 @@ export class DragAndDropComponent implements OnInit {
       /*       console.log(this.uno);
       console.log(this.contenedor); */
     } else {
-      /*       console.log(event.container.data);
+      console.log(event.container.data);
       console.log(event.previousContainer.data);
-      console.log(event.previousIndex); */
-
+      console.log(event.previousIndex); 
+      
+      
       copyArrayItem(
+        
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex
       );
+      this.contenedor.splice(1);
+      
+
 
       /*       console.log(this.uno);
       console.log(this.contenedor); */
     }
+  }
+  eliminarRegistro(event: CdkDragDrop<string[]>){
+      this.contenedor.slice(0)
+
   }
 
   constructor() {}
